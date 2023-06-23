@@ -23,6 +23,11 @@ export default styles = StyleSheet.create({
       width: 10,
       height: 10
     },
+    logoSmall: {
+        width: 40,
+        height: 45,
+        marginBottom: 20
+    },
     mainTitle: {
       fontFamily: 'DMSansBold',
       fontSize: 28,
@@ -43,20 +48,41 @@ export default styles = StyleSheet.create({
         gap: 20
     },
     buttonPrimary: {
-      backgroundColor: 'tomato',
-      borderColor: 'tomato',
+      backgroundColor: 'white',
+      borderColor: 'white',
       borderWidth: 2,
       marginTop: 20,
       borderRadius: 4
     },
     buttonSecondary: {
-      borderColor: 'tomato',
+      borderColor: 'white',
       borderWidth: 2,
       marginTop: 20,
       borderRadius: 4
     },
-    buttonText: {
+    buttonPrimaryText: {
+      color: 'black',
+      fontSize: 20,
+      paddingHorizontal: 20,
+      paddingVertical: 10,
+      textAlign: 'center'
+    },
+    buttonPrimaryTextDark: {
       color: 'white',
+      fontSize: 20,
+      paddingHorizontal: 20,
+      paddingVertical: 10,
+      textAlign: 'center'
+    },
+    buttonSecondaryText: {
+      color: 'white',
+      fontSize: 20,
+      paddingHorizontal: 20,
+      paddingVertical: 10,
+      textAlign: 'center'
+    },
+    buttonSecondaryTextDark: {
+      color: 'black',
       fontSize: 20,
       paddingHorizontal: 20,
       paddingVertical: 10,
@@ -101,4 +127,31 @@ export default styles = StyleSheet.create({
         shadowRadius: 4,
         elevation: 5,
     },
+    inputContainer: {
+        display: 'flex',
+        width: '80%',
+        marginVertical: 40
+    },
+    textInput: {
+        width: '100%',
+        borderRadius: 4,
+        borderWidth: 1,
+        borderColor: 'lightgrey',
+        marginBottom: 20,
+        padding: 4,
+        paddingHorizontal: 10
+    },
+    buttonSignInUp: {
+        backgroundColor: 'black',
+        paddingVertical: 12,
+        paddingHorizontal: 20,
+        borderRadius: 4
+    },
+    buttonSignOut: {
+        backgroundColor: 'tomato',
+        paddingVertical: 12,
+        paddingHorizontal: 20,
+        borderRadius: 4,
+        marginTop: 40
+    }
   })

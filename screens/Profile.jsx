@@ -1,9 +1,12 @@
+import { useContext } from 'react';
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
-import { Text, View } from 'react-native'
+import { TouchableOpacity, Text, View } from 'react-native'
 import styles from '../styles/styles'
+import { AuthContext } from '../authContext'
 
 function ProfileScreen() {
     const insets = useSafeAreaInsets()
+    const { signOut } = useContext(AuthContext)
     return (
         <View style={{
           ...styles.container,
@@ -12,7 +15,11 @@ function ProfileScreen() {
           paddingLeft: insets.left,
           paddingRight: insets.right
         }}>
-          <Text style={styles.sectionTitle}>Profile Screen</Text>
+          <Text style={styles.sectionTitle}>Perfil</Text>
+          <TouchableOpacity style={styles.buttonSignOut} title="" onPress={()=>signOut()}>
+            <Text style={styles.buttonPrimaryText}>Cerrar Sesión</Text>
+          </TouchableOpacity>
+
         </View>
     );
 }

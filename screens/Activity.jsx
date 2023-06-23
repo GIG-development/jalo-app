@@ -12,7 +12,7 @@ function ActivityScreen() {
           paddingLeft: insets.left,
           paddingRight: insets.right
         }}>
-          <Text style={styles.sectionTitle}>Activity Screen</Text>
+          <Text style={styles.sectionTitle}>Actividad</Text>
         </View>
     );
 }

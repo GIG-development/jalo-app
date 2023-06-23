@@ -1,4 +1,5 @@
-import { TouchableOpacity, Text, View } from 'react-native'
+import { Image, TouchableOpacity, Text, View, useColorScheme } from 'react-native'
+import { useEffect, useState } from 'react'
 import Animated, {
     useSharedValue,
     withTiming,
@@ -6,12 +7,15 @@ import Animated, {
     Easing,
 } from 'react-native-reanimated';
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
+import * as SecureStore from 'expo-secure-store';
 import Logo from '../assets/icon.png'
+import Background from '../assets/main-bg.png'
 import styles from '../styles/styles'
-import { useEffect } from 'react';
 
 function HomeScreen({ navigation }) {
     const insets = useSafeAreaInsets()
+    let colorScheme = useColorScheme();
+    const [userName, setUserName] = useState('')
 
     const config = {
         duration: 1000,
@@ -30,6 +34,14 @@ function HomeScreen({ navigation }) {
         height.value = 90
     },[width, height])
 
+    useEffect(()=>{
+        const getUsernameFromStorage = async () => {
+            const username = await SecureStore.getItemAsync('userData')
+            setUserName(username)
+        }
+        getUsernameFromStorage()
+    },[])
+
     return (
         <View style={{
           paddingTop: insets.top,
@@ -38,21 +50,26 @@ function HomeScreen({ navigation }) {
           paddingRight: insets.right,
           ...styles.container
         }}>
-            <Animated.Image source={Logo} style={[style, styles.logo]}/>
-            <Text style={styles.mainTitle}>Bienvenido</Text>
-            <View style={styles.buttonContainer}>
-                <TouchableOpacity
-                    onPress={() => navigation.navigate('Map')}
-                    style={styles.buttonPrimary}
-                >
-                    <Text style={styles.buttonText}>Ir al Mapa</Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                    onPress={() => navigation.navigate('Profile')}
-                    style={styles.buttonSecondary}
-                >
-                    <Text style={styles.buttonText}>Iniciar Sesión</Text>
-                </TouchableOpacity>
+            <View style={{position: 'absolute', width: '100%', height: '110%', top: 0}}>
+                <Image source={Background} style={{ width: '100%', height: '100%'}}/>
+            </View>
+            <View>
+                <Animated.Image source={Logo} style={[style, styles.logo]}/>
+                <Text style={styles.mainTitle}>Bienvenido{userName ? `, ${userName}`: ''}</Text>
+                <View style={styles.buttonContainer}>
+                    <TouchableOpacity
+                        onPress={() => navigation.navigate('Mapa')}
+                        style={styles.buttonPrimary}
+                    >
+                        <Text style={colorScheme === 'dark' ? styles.buttonPrimaryTextDark : styles.buttonPrimaryText}>Ir al Mapa</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        onPress={() => navigation.navigate('Actividad')}
+                        style={styles.buttonSecondary}
+                    >
+                        <Text style={colorScheme === 'dark' ? styles.buttonSecondaryTextDark : styles.buttonSecondaryText}>Ver Actividad</Text>
+                    </TouchableOpacity>
+                </View>
             </View>
         </View>
     );

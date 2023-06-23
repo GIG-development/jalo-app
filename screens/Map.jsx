@@ -82,9 +82,19 @@ function MapScreen() {
                 }}
                 title={'Sushiito'}
                 description={'Acercáte a esta sucursal para participar'}
-                image={require('../assets/pins/pin.png')}
+                image={require('../assets/pins/gift.png')}
                 onCalloutPress={onCalloutTap}
-            />
+            >
+                <Callout tooltip={true} style={{width: 200, backgroundColor: 'white', paddingVertical: 10}}>
+                    <View style={styles.callOut}>
+                        <Text style={styles.sectionTitle}>Regalo</Text>
+                        <Text style={{fontSize: 14, textAlign: 'center'}}>Acercáte a esta sucursal para participar</Text>
+                        <Pressable style={{padding: 2, ...styles.buttonPrimary}} onPress={() => setModalVisible(!modalVisible)}>
+                            <Text style={styles.buttonPrimaryText}>Ver mas</Text>
+                        </Pressable>
+                    </View>
+                </Callout>
+            </Marker>
             <Marker
                 key={2}
                 coordinate={{
@@ -97,7 +107,17 @@ function MapScreen() {
                 description={'Acercáte a esta sucursal para participar'}
                 image={require('../assets/pins/gift.png')}
                 onCalloutPress={onCalloutTap}
-            />
+            >
+                <Callout tooltip={true} style={{width: 200, backgroundColor: 'white', paddingVertical: 10}}>
+                    <View style={styles.callOut}>
+                        <Text style={styles.sectionTitle}>Regalo</Text>
+                        <Text style={{fontSize: 14, textAlign: 'center'}}>Acercáte a esta sucursal para participar</Text>
+                        <Pressable style={{padding: 2, ...styles.buttonPrimary}} onPress={() => setModalVisible(!modalVisible)}>
+                            <Text style={styles.buttonPrimaryText}>Ver mas</Text>
+                        </Pressable>
+                    </View>
+                </Callout>
+            </Marker>
             <Marker
                 key={3}
                 coordinate={{
@@ -110,7 +130,17 @@ function MapScreen() {
                 description={'Acercáte a esta sucursal para participar en esta actividad'}
                 image={require('../assets/pins/drop.png')}
                 onCalloutPress={onCalloutTap}
-            />
+            >
+                <Callout tooltip={true} style={{width: 200, backgroundColor: 'white', paddingVertical: 10}}>
+                    <View style={styles.callOut}>
+                        <Text style={styles.sectionTitle}>Drop</Text>
+                        <Text style={{fontSize: 14, textAlign: 'center'}}>Acercáte a esta sucursal para participar</Text>
+                        <Pressable style={{padding: 2, ...styles.buttonPrimary}} onPress={() => setModalVisible(!modalVisible)}>
+                            <Text style={styles.buttonPrimaryText}>Ver mas</Text>
+                        </Pressable>
+                    </View>
+                </Callout>
+            </Marker>
             <Marker
                 key={4}
                 coordinate={{
@@ -129,7 +159,7 @@ function MapScreen() {
                         <Text style={styles.sectionTitle}>Challenge</Text>
                         <Text style={{fontSize: 14, textAlign: 'center'}}>Acercáte a esta sucursal para participar</Text>
                         <Pressable style={{padding: 2, ...styles.buttonPrimary}} onPress={() => setModalVisible(!modalVisible)}>
-                            <Text style={styles.buttonText}>Ver mas</Text>
+                            <Text style={styles.buttonPrimaryText}>Ver mas</Text>
                         </Pressable>
                     </View>
                 </Callout>
@@ -152,12 +182,12 @@ function MapScreen() {
                         <Pressable
                             style={{padding: 20, ...styles.buttonPrimary}}
                             onPress={() => setModalVisible(!modalVisible)}>
-                            <Text style={styles.buttonText}>Participar</Text>
+                            <Text style={styles.buttonPrimaryText}>Participar</Text>
                         </Pressable>
                         <Pressable
                             style={{padding: 20, ...styles.buttonSecondary}}
                             onPress={() => setModalVisible(!modalVisible)}>
-                            <Text style={styles.buttonText}>Cerrar</Text>
+                            <Text style={styles.buttonSecondaryText}>Cerrar</Text>
                         </Pressable>
                     </View>
                 </View>
