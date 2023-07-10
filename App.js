@@ -79,7 +79,7 @@ export default function App() {
   const authContext = useMemo(
     () => ({
       signIn: async (data) => {
-        // Send user data, get token back (check for errors)
+        //To do: Send user data, get token back (check for errors)
         await SecureStore.setItemAsync('userToken', 'dummy-auth-token')
         await SecureStore.setItemAsync('userData', data.username)
         dispatch({ type: 'SIGN_IN', token: 'dummy-auth-token', data: data.username });
@@ -90,7 +90,7 @@ export default function App() {
         dispatch({ type: 'SIGN_OUT' })
       },
       signUp: async (data) => {
-        // Send user data, get token back (check for errors)
+        //To do: Send user data, get token back (check for errors)
         await SecureStore.setItemAsync('userToken', 'dummy-auth-token')
         await SecureStore.setItemAsync('userData', data.username)
         dispatch({ type: 'SIGN_IN', token: 'dummy-auth-token', data: data.username });
