@@ -9,6 +9,7 @@ function SignInScreen({ navigation }) {
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    //import function from authentication context
     const { signIn } = useContext(AuthContext);
     let colorScheme = useColorScheme();
 
